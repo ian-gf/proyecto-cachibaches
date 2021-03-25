@@ -1,4 +1,4 @@
-package com.example.demo.entities.campo;
+package com.example.demo.entities.jugador;
 
 import com.example.demo.topic.Topic;
 
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Course {
+public class Jugador {
 
     @Id
     private String id;
@@ -17,11 +17,11 @@ public class Course {
     @ManyToOne
     private Topic topic;
 
-    public Course() {
+    public Jugador() {
 
     }
 
-    public Course(String id, String name, String description, String topicId) {
+    public Jugador(String id, String name, String description, String topicId) {
         super();
         this.id = id;
         this.name = name;
