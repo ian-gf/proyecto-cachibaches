@@ -13,9 +13,9 @@ public class CampoService {
     @Autowired
     private CampoRepository campoRepository;
 
-    public List<Campo> getAllCampos(String topicId) {
+    public List<Campo> getAllCampos() {
         List<Campo> campos = new ArrayList<>();
-        campoRepository.findByTopicId(topicId).forEach(campos::add);
+        campoRepository.findAll().forEach(campos::add);
         return campos;
 
     }
@@ -29,7 +29,7 @@ public class CampoService {
 
     }
 
-    public void updateCampo(Campo campo) {
+    public void updateCampo(String id, Campo campo) {
         campoRepository.save(campo);
 
     }

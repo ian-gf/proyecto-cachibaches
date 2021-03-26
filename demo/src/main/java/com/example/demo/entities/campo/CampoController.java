@@ -12,32 +12,21 @@ public class CampoController {
     @Autowired
     private CampoService campoService;
 
-    @RequestMapping("/topics/{id}/campos")
-    public List<Campo> getAllCourses(@PathVariable String id) {
-        return campoService.getAllCampos(id);
+    @RequestMapping("/campos")
+    public List<Campo> getAllCampos() {
+        return campoService.getAllCampos();
     }
 
-    @RequestMapping("/topics/{topicId}/campos/{id}")
-    public Campo getCourse(@PathVariable String id) {
-        return campoService.getCampo(id);
+    @RequestMapping("/campos/{id}")
+    public Campo getCampo(@PathVariable String id) { return campoService.getCampo(id); }
 
-    }
+    @RequestMapping(method = RequestMethod.POST, value = "/campos")
+    public void addCampo(@RequestBody Campo campo) { campoService.addCampo(campo); }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/topics/{topicId}/campos")
-    public void addCourse(@RequestBody Campo campo, @PathVariable String topicId) {
-        campo.setTopic(new Topic(topicId, "", ""));
-        campoService.addCampo(campo);
+    @RequestMapping(method = RequestMethod.PUT, value = "/campos/{id}")
+    public void updateCampo(@RequestBody Campo campo, @PathVariable String id) { campoService.updateCampo(id, campo); }
 
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value = "/topics/{topicId}/campos/{id}")
-    public void updateCourse(@RequestBody Campo campo, @PathVariable String topicId, @PathVariable String id) {
-        campo.setTopic(new Topic(topicId, "", ""));
-        campoService.updateCampo(campo);
-
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{topicId}/campos/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/campos/{id}")
     public void deleteCampo(@PathVariable String id) {
         campoService.deleteCampo(id);
     }

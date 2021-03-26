@@ -12,7 +12,6 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
-
     @RequestMapping("/topics")
     public List<Topic> getAllTopic() {
         return topicService.getAllTopics();

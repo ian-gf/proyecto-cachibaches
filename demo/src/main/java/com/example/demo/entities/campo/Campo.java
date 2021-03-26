@@ -11,22 +11,18 @@ public class Campo {
 
     @Id
     private String id;
-    private String name;
-    private String description;
+    private String nombre;
+    private String direccion;
+    private String tipo;
 
-    @ManyToOne
-    private Topic topic;
+    public Campo() { }
 
-    public Campo() {
-
-    }
-
-    public Campo(String id, String name, String description, String topicId) {
+    public Campo(String id, String nombre, String direccion, String tipo) {
         super();
         this.id = id;
-        this.name = name;
-        this.description = description;
-        this.topic = new Topic(topicId, "", "");
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.tipo = tipo;
     }
 
     public String getId() {
@@ -37,27 +33,24 @@ public class Campo {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getnombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setnombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDescription() {
-        return description;
+    public String getdireccion() {
+        return direccion;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setdireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public Topic getTopic() {
-        return topic;
-    }
+    public void setTipo(String tipo) { this.tipo = tipo;}
 
-    public void setTopic(Topic topic) {
-        this.topic = topic;
-    }
+    public String getTipo() { return tipo;}
+
 }
