@@ -14,9 +14,9 @@ public class CampoService {
     private CampoRepository campoRepository;
 
     public List<Campo> getAllCampos(String topicId) {
-        List<Campo> courses = new ArrayList<>();
-        campoRepository.findByTopicId(topicId).forEach(courses::add);
-        return courses;
+        List<Campo> campos = new ArrayList<>();
+        campoRepository.findByTopicId(topicId).forEach(campos::add);
+        return campos;
 
     }
 
